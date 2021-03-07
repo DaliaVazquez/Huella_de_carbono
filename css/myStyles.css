@@ -31,3 +31,126 @@ body {
     align-items: center;
     align-content: center;
 }
+.misnotas{
+    color: white; 
+    margin: 15px;
+}
+#btnUploadFile {
+    background: #126798 !important;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+    transition: 0.5s;
+    margin-bottom: 1em;
+    margin-top: 1em;
+}
+.modal-registro {
+    width: 80% !important;
+  }
+  .registro-bienvenida {
+    text-align: center;
+    width: 100%;
+  }
+  .registro-bienvenida h4 {
+    color: #126798;
+    font-size: 1.5em;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+    margin-bottom: 0.5em;
+  }
+  .registro-bienvenida .registro-bienvenida-texto {
+    margin-bottom: 1em;
+    font-size: 1em;
+    text-align: left;
+  }
+  .registro-bienvenida span {
+    color: #7acc2d;
+    font-size: 1.2em;
+    font-weight: bold;
+  }
+  .registro-formulario {
+    border-left: 0.3em solid #126798;
+  }
+  .registro-formulario div {
+    margin: 0;
+  }
+  .registro-formulario label {
+    color: #126798;
+    font-size: 1em;
+  }
+  .registro-formulario a {
+    margin-top: 2em;
+    text-align: center;
+    width: 80% !important;
+  }
+  .registro-formulario .div-btnInicioSesion {
+    text-align: center;
+    display: inline-block;
+    width: 150px;
+    font-size: 12px;
+    text-align: center;
+    padding: 0;
+  }
+  .registro-formulario .div-btnInicioSesion a {
+    background: #126798 !important;
+  }
+  .registro-formulario .lbl-ingresar-redes {
+    color: #126798;
+    font-weight: bold;
+    padding-top: 1em;
+    text-align: center;
+  }
+  .registro-formulario .registro-iconos-redes {
+    background: #fff !important;
+    text-align: center;
+  }
+  .registro-formulario .registro-iconos-redes .logo-facebook:before {
+    color: #7acc2d;
+    content: "\f101";
+    font-size: 40px;
+    font-family: "Flaticon";
+  }
+  .registro-formulario .registro-iconos-redes .logo-google {
+    margin-left: 1em;
+  }
+  .registro-formulario .registro-iconos-redes .logo-google:before {
+    color: #7acc2d;
+    content: "\f2b3";
+    font-size: 45px;
+    font-family: "googleicon";
+  }
+  .registro-formulario .registro-iconos-redes .logo-twitter {
+    margin-left: 1em;
+  }
+  .registro-formulario .registro-iconos-redes .logo-twitter:before {
+    color: #7acc2d;
+    content: "\f102";
+    font-size: 40px;
+    font-family: "Flaticon";
+  }
+  .div-btnRegistrarse {
+    text-align: center;
+    margin-top: 2em;
+    margin-bottom: 0em;
+  }
+  .div-btnRegistrarse a {
+    background: #126798 !important;
+  }
+@media screen and (min-width: 768px) {
+    .registro-bienvenida {
+        text-align: left;
+    }
+    .registro-bienvenida h4 {
+        margin-bottom: 1em;
+        font-size: 2em;
+    }
+    .registro-bienvenida .registro-bienvenida-texto {
+        margin-bottom: 2em;
+        font-size: 1.5em;
+    }
+    .registro-bienvenida span {
+        font-size: 1.5em;
+    }
+    .modal-registro {
+        width: 70% !important;
+    }
+}

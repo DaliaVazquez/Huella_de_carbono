@@ -13,14 +13,16 @@
 
     <!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     
 </head>
 <body>
 
     <!--menu-->
     <div class="row " >
-        <div class="col s12" id="inicio" align="center" style="position: absolute;margin-bottom:0%; margin-top:1%;">
-            <img style="height:40px;margin-top: 0%" src="img/logo.png">
+        <div class="col s12" id="inicio" align="right" style="position: absolute;margin-top:1%;">
+            <img style="height:40px;margin-right:3%;" id="avatar"alt="Avatar"src="img/logo.png">
         </div>
         
         <div class="col s3 ">
@@ -37,114 +39,163 @@
     </div>
 
     <!--imagen1-->
-    <div class="parallax-container" class="parallax-container" align="center" style="margin-top:0%; height:700px" >
+    <div class="parallax-container" class="parallax-container" align="center" style="margin-top:0%; height:750px" >
         <div class="parallax">
             <img src="img/fondo.jpg">
         </div>
-
-        <img class="flow-text" style="margin-top:10%; height:70px"  src="img/logo.png">
-
+        
+        <img class="flow-text" style="margin-top:10%; height:150px"  src="img/logo.png">
+        <div class="col s12 ">
+            <img class="flow-text" style="margin-top:1%; height:70px"  src="img/nombre.png">
+        </div>
+        <p ><a class="flow-text waves-effect waves-light btn modal-trigger  N/A transparent" href="#modal1"><img  style="margin-top:2%; height:50px"class="responsive-img" src="img/play.JPG" ></a></p>
+        
     </div>
+
+<!-- inicio Structure -->
+<div id="modal1" align="center" class="modal">
+    <div class="modal-content">
+        <div class="container">
+            <div class="row">
+                <div class="col s12 m6 registro-bienvenida">
+                    <h4>Bienvenido al VideoBlog Geek</h4>
+                    <div class="registro-bienvenida-texto">
+                        Publica, aprende y conecta con otros por medio de videos Geek.
+                    </div>
+                    <span>Empieza Ahora</span>
+                </div>
+                <div class="col s12 m6 registro-formulario">
+                    <div class="input-field">                            
+                        <input id="emailSesion" type="email" required/>
+                        <label for="emailSesion">E-mail:</label>
+                    </div>
+                    <div class="input-field">
+                        <input id="passwordSesion" type="password" required />
+                        <label for="passwordSesion">Password:</label>
+                    </div>
+                    <div class="div-btnInicioSesion">
+                        <a id="btnInicioEmail" class="btn waves-effect waves-light">Iniciar<i class="material-icons right">send</i></a>
+                    </div> 
+                    <div class="div-btnInicioSesion">
+                        <a id="btnRecordarPassword" class="btn waves-effect waves-light">Recordar<i class="material-icons right">send</i></a>
+                    </div>          
+                    <div class="lbl-ingresar-redes">
+                        <span>INGRESA CON:</span>
+                    </div>
+                    <div class="registro-iconos-redes">                                          
+                        <a id="authFB" class="logo-facebook" href="#"></a>
+                        <a id="authGoogle" class="logo-google" href="#"></a>
+                        <a id="authTwitter" class="logo-twitter" href="#"></a>
+                    </div> 
+                </div>
+                <div class="col s12 m12 div-btnRegistrarse">
+                    <a href="#modalRegistro" class="btn waves-effect waves-light modal-close modal-trigger" id="btnRegistrarse">Crear una cuenta<i class="material-icons left">account_box</i></a>                        
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal de registro -->
+<div id="modalRegistro" class="modal modal-registro">
+    <div class="modal-content">
+        <div class="container">
+            <div class="row">
+                <div class="col s12 m6 registro-bienvenida">
+                    <h4>Bienvenido al VideoBlog Geek</h4>
+                    <div class="registro-bienvenida-texto">
+                        Publica, aprende y conecta con otros por medio de videos Geek.
+                    </div>
+                    <span>Empieza Ahora</span>
+                </div>
+                <div class="col s12 m6 registro-formulario">
+                    <div class="input-field">
+                        <input id="nombreContactoReg" type="text"  maxlength="50" data-length="50" required />
+                        <label for="nombreContactoReg">Nombres:</label>
+                    </div>
+                    <div class="input-field">
+                        <input id="emailContactoReg" type="email"  maxlength="50" data-length="50" required />
+                        <label for="emailContactoReg">E-mail:</label>
+                    </div>
+                    <div class="input-field">
+                        <input id="passwordReg" type="password"  maxlength="10" data-length="10" required />
+                        <label for="passwordReg">Password:</label>
+                    </div>
+                    <div class="div-btnInicioSesion">
+                        <a id="btnRegistroEmail" class="btn waves-effect waves-light">Registrarse<i class="material-icons left">account_box</i></a>
+                    </div>                        
+                </div>
+                <div class="col s12 m12 div-btnRegistrarse">
+                    <a id="btnIniciarSesion" href="#modal1" class="btn waves-effect waves-light modal-close modal-trigger">Iniciar Sesión<i class="material-icons right">send</i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
     <div class="row" >
 
-        <div class="col s3 ">
+        <div class="col s2 ">
         </div>
-        <div class="col s9 ">
+        <div class="col s10 ">
             <!--Noticias 1-->
             <div class="col s12">
-                <div class="col s12 m3">
-                    <div class="card">
-                    <div class="card-image">
-                        <img src="img/fondo.jpg">
-                        <span class="card-title">Card Title</span>
-                    </div>
-                    <div class="card-content">
-                        <p>I am a very simple card. I am good at containing small bits of information.
-                        I am convenient because I require little markup to use effectively.</p>
-                    </div>
+                <div class="col s12 m3 misnotas"align="center">
+                    <img class="circle responsive-img" src="img/img.jpg">
+                    <h4>Card Title</h4>
+                    <p>I am a very simple card. I am good at containing small bits of information.
+                    I am convenient because I require little markup to use effectively.</p>
                     <div class="card-action">
                         <a href="#">This is a link</a>
-                    </div>
                     </div>
                 </div>
-                <div class="col s12 m3">
-                    <div class="card">
-                    <div class="card-image">
-                        <img src="img/fondo.jpg">
-                        <span class="card-title">Card Title</span>
-                    </div>
-                    <div class="card-content">
-                        <p>I am a very simple card. I am good at containing small bits of information.
-                        I am convenient because I require little markup to use effectively.</p>
-                    </div>
+                <div class="col s12 m3 misnotas"align="center">
+                    <img class="circle responsive-img" src="img/img.jpg">
+                    <h4>Card Title</h4>
+                    <p>I am a very simple card. I am good at containing small bits of information.
+                    I am convenient because I require little markup to use effectively.</p>
                     <div class="card-action">
                         <a href="#">This is a link</a>
-                    </div>
                     </div>
                 </div>
-                <div class="col s12 m3">
-                    <div class="card">
-                    <div class="card-image">
-                        <img src="img/fondo.jpg">
-                        <span class="card-title">Card Title</span>
-                    </div>
-                    <div class="card-content">
-                        <p>I am a very simple card. I am good at containing small bits of information.
-                        I am convenient because I require little markup to use effectively.</p>
-                    </div>
+                <div class="col s12 m3 misnotas"align="center" >
+                    <img class="circle responsive-img" src="img/img.jpg">
+                    <h4>Card Title</h4>
+                    <p>I am a very simple card. I am good at containing small bits of information.
+                    I am convenient because I require little markup to use effectively.</p>
                     <div class="card-action">
                         <a href="#">This is a link</a>
-                    </div>
                     </div>
                 </div>
             </div>
 
             <!--Noticias 2-->
             <div class="col s12">
-                <div class="col s12 m3">
-                    <div class="card">
-                    <div class="card-image">
-                        <img src="img/fondo.jpg">
-                        <span class="card-title">Card Title</span>
-                    </div>
-                    <div class="card-content">
-                        <p>I am a very simple card. I am good at containing small bits of information.
-                        I am convenient because I require little markup to use effectively.</p>
-                    </div>
+                <div class="col s12 m3 misnotas"align="center">
+                    <img class="circle responsive-img" src="img/img.jpg">
+                    <h4>Card Title</h4>
+                    <p>I am a very simple card. I am good at containing small bits of information.
+                    I am convenient because I require little markup to use effectively.</p>
                     <div class="card-action">
                         <a href="#">This is a link</a>
-                    </div>
                     </div>
                 </div>
-                <div class="col s12 m3">
-                    <div class="card">
-                    <div class="card-image">
-                        <img src="img/fondo.jpg">
-                        <span class="card-title">Card Title</span>
-                    </div>
-                    <div class="card-content">
-                        <p>I am a very simple card. I am good at containing small bits of information.
-                        I am convenient because I require little markup to use effectively.</p>
-                    </div>
+                <div class="col s12 m3 misnotas"align="center">
+                    <img class="circle responsive-img" src="img/img.jpg">
+                    <h4>Card Title</h4>
+                    <p>I am a very simple card. I am good at containing small bits of information.
+                    I am convenient because I require little markup to use effectively.</p>
                     <div class="card-action">
                         <a href="#">This is a link</a>
-                    </div>
                     </div>
                 </div>
-                <div class="col s12 m3">
-                    <div class="card">
-                    <div class="card-image">
-                        <img src="img/fondo.jpg">
-                        <span class="card-title">Card Title</span>
-                    </div>
-                    <div class="card-content">
-                        <p>I am a very simple card. I am good at containing small bits of information.
-                        I am convenient because I require little markup to use effectively.</p>
-                    </div>
+                <div class="col s12 m3 misnotas"align="center">
+                    <img class="circle responsive-img" src="img/img.jpg">
+                    <h4>Card Title</h4>
+                    <p>I am a very simple card. I am good at containing small bits of information.
+                    I am convenient because I require little markup to use effectively.</p>
                     <div class="card-action">
                         <a href="#">This is a link</a>
-                    </div>
                     </div>
                 </div>
             </div>
@@ -157,5 +208,12 @@
             var instances = M.Parallax.init(elems);
         });
     </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var elems = document.querySelectorAll('.modal');
+            var instances = M.Modal.init(elems);
+        });
+    </script>
+    
 </body>
 </html>
