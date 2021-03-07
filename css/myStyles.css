@@ -1,0 +1,33 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-color:black;
+}
+.miMenu{
+    margin: 0%; 
+    height:50px;
+    align-items: center;
+    align-content: center;
+    margin-top: 0%
+}
+.miMenuVertical{
+    position: fixed;
+    z-index: 1;
+    align-items: center;
+    margin-top: 8%;
+}
+.mig{
+    height:100%;
+    width: 100%;
+    margin-left: 20%;
+}
+.miparallax {
+    margin-top: -5%;
+    margin: 0%; 
+    height:700px;
+    align-items: center;
+    align-content: center;
+}
+.micentro{
+    align-items: center;
+    align-content: center;
+}
