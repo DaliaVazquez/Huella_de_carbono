@@ -21,8 +21,8 @@
 
     <!--menu-->
     <div class="row " >
-        <div class="col s12" id="inicio" align="right" style="position: absolute;margin-top:1%;">
-            <img style="height:40px;margin-right:3%;" id="avatar"alt="Avatar"src="img/logo.png">
+        <div class="col s12 right-align" id="inicio"style="z-index:2;position: absolute;margin-top:1%;">
+            <img style="height:50px;margin-right:3%;" id="avatar"alt="Avatar"src="img/us.png">
         </div>
         
         <div class="col s3 ">
@@ -33,27 +33,36 @@
                     <a href="#"><img class="mig" src="img/m2.png"></a>
                     <a href="#"><img class="mig" src="img/linea.png"></a>
                     <a href="#"><img class="mig" src="img/m3.png"></a>
+                    <a href="#"><img class="mig" src="img/linea.png"></a>
+                    <a href="#"><img class="mig" src="img/m4.png"></a>
+                    <a href="#"><img class="mig" src="img/linea.png"></a>
+                    <a href="#"><img class="mig" src="img/m5.png"></a>
+                    <a href="#"><img class="mig" src="img/linea.png"></a>
+                    <a href="#"><img class="mig" src="img/m6.png"></a>
                 </div>
             </div>
         </div>
     </div>
+    <!--imagen-->
+    <div class="center-align"  style="margin-top:0%; z-index:0;" >   
+        <script src='https://cdnjs.cloudflare.com/ajax/libs/three.js/89/three.min.js'></script>
+        <script  src="js/script.js"></script>    
+    </div> 
+   
 
-    <!--imagen1-->
-    <div class="parallax-container" class="parallax-container" align="center" style="margin-top:0%; height:750px" >
-        <div class="parallax">
-            <img src="img/fondo.jpg">
-        </div>
-        
-        <img class="flow-text" style="margin-top:10%; height:150px"  src="img/logo.png">
+    <div class="parallax-container center-align"  style="margin-top:-50%; z-index:1;height:760px;" >
+        <img class="responsive-img flow-text " style="margin-top:10%; height:150px"  src="img/logo.png">
         <div class="col s12 ">
-            <img class="flow-text" style="margin-top:1%; height:70px"  src="img/nombre.png">
+            <img class="flow-text" style="margin-top:1%; height:70px"  src="img/nombre2.png">
         </div>
-        <p ><a class="flow-text waves-effect waves-light btn modal-trigger  N/A transparent" href="#modal1"><img  style="margin-top:2%; height:50px"class="responsive-img" src="img/play.JPG" ></a></p>
-        
+        <p ><a class="flow-text waves-effect waves-light btn modal-trigger #43a047 green darken-1" href="#modal1">ok</a></p>
+        <div class="parallax">
+            <img src="img/web.png">
+        </div>
     </div>
-
-<!-- inicio Structure -->
-<div id="modal1" align="center" class="modal">
+   
+<!-- inicio modal Structure -->
+<div id="modal1"  class="modal center-align">
     <div class="modal-content">
         <div class="container">
             <div class="row">
@@ -132,15 +141,54 @@
         </div>
     </div>
 </div>
-
+    <div class="row">
+        <div class="col s12">
+            <div class="col s4"> </div>
+            <div class="col s4">
+                <h3> Proyecto</h3>
+                <p>Este es un proyecto que pretende generar una aplicación web sonde las personas pueden visualizar la huella de carbono en su ciudad al día o semana, además pueden leer artículos de cómo ayudar al planeta. </p>
+            </div>
+            <div class="col s4"> </div>
+        </div>
+        <div class="col s4"></div>
+        <div class="col s4">
+            <h3> </h3>
+            
+        </div>
+        <div class="col s4"></div>
+  </div>
+    <!--Graficas -->
+    <div class="row center-align" >
+        <div class="col s3"></div>
+        <div class="col s6 " id="dia"style="z-index:0; ">
+            <img style="height:500px;position:relative;margin-bottom: -61%;" src="img/cir.png">
+        </div>
+        <div class="col s3"></div>
+    </div>
+    <div style="margin-bottom: 20%; height:50%;" id="hero-donut" class="graph"></div>
+    <div class="row center-align" >
+        <div class="col s2"></div>
+        <div class="col s6 " id="dia"style="z-index:0; ">
+            <img style="height:500px;position:relative;margin-bottom: -80%;" src="img/rec.png">
+        </div>
+        <div class="col s3"></div>
+    </div>
+    <div class="row center-align" >
+        <div class="col s2 "style="margin-right:5%"></div>
+        <div class="col s9 " style="margin-top:3%">
+                    
+            <div style="margin-top:0%; height:400px; width: 900px;" id="hero-bar" class="graph"></div>
+        </div>
+    </div>
+    
+    <!--Noticias -->
     <div class="row" >
-
+        <!--Noticias 1-->
         <div class="col s2 ">
         </div>
-        <div class="col s10 ">
-            <!--Noticias 1-->
-            <div class="col s12">
-                <div class="col s12 m3 misnotas"align="center">
+        <div class="col s10 center-align" >
+            <div class="col s12"style="margin-left:3%;">
+                <div class="col s12 m3 misnotas">
                     <img class="circle responsive-img" src="img/img.jpg">
                     <h4>Card Title</h4>
                     <p>I am a very simple card. I am good at containing small bits of information.
@@ -149,7 +197,7 @@
                         <a href="#">This is a link</a>
                     </div>
                 </div>
-                <div class="col s12 m3 misnotas"align="center">
+                <div class="col s12 m3 misnotas">
                     <img class="circle responsive-img" src="img/img.jpg">
                     <h4>Card Title</h4>
                     <p>I am a very simple card. I am good at containing small bits of information.
@@ -158,7 +206,7 @@
                         <a href="#">This is a link</a>
                     </div>
                 </div>
-                <div class="col s12 m3 misnotas"align="center" >
+                <div class="col s12 m3 misnotas">
                     <img class="circle responsive-img" src="img/img.jpg">
                     <h4>Card Title</h4>
                     <p>I am a very simple card. I am good at containing small bits of information.
@@ -170,8 +218,8 @@
             </div>
 
             <!--Noticias 2-->
-            <div class="col s12">
-                <div class="col s12 m3 misnotas"align="center">
+            <div class="col s12" style="margin-left:3%;">
+                <div class="col s12 m3 misnotas">
                     <img class="circle responsive-img" src="img/img.jpg">
                     <h4>Card Title</h4>
                     <p>I am a very simple card. I am good at containing small bits of information.
@@ -180,7 +228,7 @@
                         <a href="#">This is a link</a>
                     </div>
                 </div>
-                <div class="col s12 m3 misnotas"align="center">
+                <div class="col s12 m3 misnotas">
                     <img class="circle responsive-img" src="img/img.jpg">
                     <h4>Card Title</h4>
                     <p>I am a very simple card. I am good at containing small bits of information.
@@ -189,7 +237,7 @@
                         <a href="#">This is a link</a>
                     </div>
                 </div>
-                <div class="col s12 m3 misnotas"align="center">
+                <div class="col s12 m3 misnotas">
                     <img class="circle responsive-img" src="img/img.jpg">
                     <h4>Card Title</h4>
                     <p>I am a very simple card. I am good at containing small bits of information.
@@ -201,7 +249,39 @@
             </div>
         </div>
     </div>
+    <!-- jpie  -->
+    <footer class="page-footer #1b5e20 green darken-4">
+        <div class="container">
+          <div class="row">
+            <div class="col l6 s12">
+                <h5 class="white-text">Footer Content</h5>
+                <p class="grey-text text-lighten-4">Esta página esta creada únicamente con propósitos académicos y educativos, no tiene ningún interés de lucro. Esta pagina forma parte de un proyecto para una clase universitaria, y una propuesta para las Olimpiadas de Platzi. </p>
+                <p>En la creación de este proyecto se han utilizado librerías y recursos externos que se pueden ver en los links.
+                </p>
+            </div>
+            <div class="col l4 offset-l2 s12">
+              <h5 class="white-text">Links</h5>
+              <ul>
+                <li><a class="grey-text text-lighten-3" href="#https://www.freepik.es/vectores/abstracto">Vector pixel</a></li>
+                <li><a class="grey-text text-lighten-3" href="#https://materializecss.com/">Materialize</a></li>
+                <li><a class="grey-text text-lighten-3" href="#https://codepen.io/vcomics/pen/aGmoae">City 3D</a></li>
+                <li><a class="grey-text text-lighten-3" href="#!">Link 4</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="footer-copyright">
+          <div class="container">
+          <a class="grey-text text-lighten-4 right" href="#!"></a>
+          </div>
+        </div>
+      </footer>
     
+    <!-- js placed at the end of the document  -->
+    <script src="lib/jquery/jquery.min.js"></script>
+    <script src="lib/raphael/raphael.min.js"></script>
+    <script src="lib/morris/morris.min.js"></script>
+    <script src="lib/morris-conf.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             var elems = document.querySelectorAll('.parallax');
@@ -214,6 +294,7 @@
             var instances = M.Modal.init(elems);
         });
     </script>
+    
     
 </body>
 </html>
