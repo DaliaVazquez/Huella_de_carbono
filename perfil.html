@@ -15,18 +15,19 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <!--Import Google Icon Font-->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    
 </head>
 <body>
      <!--menu-->
     <div class="row " >
-        <div class="col s12" id="inicio" align="right" style="position: absolute;margin-top:1%;">
+        <div class="col s12 right-align" id="inicio"style="position: absolute;margin-top:1%;">
             <img style="height:40px;margin-right:3%;" id="avatar"alt="Avatar"src="img/logo.png">
         </div>
         
         <div class="col s3 ">
             <div class="col s1 miMenuVertical" >
                 <div >
-                    <a href="#inicio" ><img class="mig" src="img/m1.png"></a>
+                    <a href="index.html" ><img class="mig" src="img/m1.png"></a>
                     <a href="#"><img class="mig" src="img/linea.png"></a>
                     <a href="#"><img class="mig" src="img/m2.png"></a>
                     <a href="#"><img class="mig" src="img/linea.png"></a>
@@ -37,7 +38,7 @@
     </div>
 
     <!--imagen1-->
-    <div class="parallax-container" class="parallax-container" align="center" style="margin-top:0%; height:300px" >
+    <div class="parallax-container center-align" class="parallax-container"  style="margin-top:0%; height:300px" >
         <div class="parallax">
             <img src="img/fondo.jpg">
         </div>
@@ -48,36 +49,93 @@
         </div>
         
     </div>
+
+    <!--modal -->
+      <!-- Modal Trigger -->
+      <p ><a id="btnModalPost"class="flow-text  btn modal-trigger #43a047 green darken-1" href="#modalPost">ok</a></p>
+ <!-- Modal Post -->
+ <div id="modalPost" class="modal modal-registro">
+    <div class="modal-content">
+        <div class="container">
+            <div class="row">
+                <div class="col s12 m6 registro-bienvenida">
+                    <h4>Realiza un Post</h4>
+                    <div class="registro-bienvenida-texto">
+                        Comparte un video interesante para la comunidad
+                    </div>
+                    <span>Comparte ahora</span>
+                </div>
+                <div class="col s12 m6 registro-formulario">
+                    <div class="input-field">
+                        <input id="tituloNewPost" type="text" maxlength="30" data-length="30" required />
+                        <label for="tituloNewPost">Titulo:</label>
+                    </div>
+                    <div class="input-field">
+                        <textarea id="descripcionNewPost" type="text"  maxlength="200" data-length="200" class="materialize-textarea" required></textarea>
+                        <label for="descripcionNewPost">Descripción:</label>
+                    </div>
+                    <div class="input-field">
+                        <input id="linkVideoNewPost" type="text" required />
+                        <label for="linkVideoNewPost">Enlace del video:</label>
+                    </div>
+                    <div class="progress-panel">
+                        <label for="btnUploadFile">Imagen:</label>
+                        <input type="file" value="upload" id="btnUploadFile" />
+                        <div class="progress">
+                            <div class="determinate" style="width: 0%"></div>
+                        </div>
+                    </div>
+                    <div class="div-btnInicioSesion">
+                        <a id="btnRegistroPost" class="btn waves-effect waves-light">Crear Post<i class="material-icons left">create</i></a>
+                    </div>                      
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
     <!--Graficas -->
-    <div class="row center-align" >
-        <div class="col s3"></div>
-        <div class="col s6 " id="dia"style="z-index:0; ">
-            <img style="height:500px;position:relative;margin-bottom: -61%;" src="img/cir.png">
-        </div>
-        <div class="col s3"></div>
-    </div>
-    <div style="margin-bottom: 10%; height:50%;" id="hero-donut" class="graph"></div>
+    
 
+    <iframe  src="copy.html" scrolling="no"></iframe>
     <div class="row">
-        <div class="col s4"> </div>
-        <div class="col s4">
-            <h3> Proyecto</h3>
-            <p>Este es un proyecto que pretende generar una aplicación web sonde las personas pueden visualizar la huella de carbono en su ciudad al día o semana, además pueden leer artículos de cómo ayudar al planeta. </p>
-        </div>
-        <div class="col s12"> </div>
-        
-
-        <div class="col s3"> </div>
-        <div class="col s6"> <div style="margin-top:0%; " id="hero-bar" class="graph center-align"></div></div>
+        <div class="col s12">
+         </div>
         
     </div>
-    <!-- js placed at the end of the document so the pages load faster -->
-    <script src="lib/jquery/jquery.min.js"></script>
-    <script src="lib/raphael/raphael.min.js"></script>
-    <script src="lib/morris/morris.min.js"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.1/js/materialize.min.js"></script>
+
+    <!-- Firebase App is always required and must be first -->
+    <script src="https://www.gstatic.com/firebasejs/5.5.8/firebase-app.js"></script>
+
+    <script src="https://www.gstatic.com/firebasejs/5.5.8/firebase-auth.js"></script>
+
+    <script src="https://www.gstatic.com/firebasejs/5.5.8/firebase-firestore.js"></script>
+
+
+    <!--build:js js/main.min.js -->
+    <script type="text/javascript" src="js/config/ConfigFirebase.js"></script>
+    <script type="text/javascript" src="js/util/util.js"></script>
+    <script type="text/javascript" src="js/post/post.js"></script>
+    <script type="text/javascript" src="js/general.js"></script>
+    <script type="text/javascript" src="js/auth/autenticacion.js"></script>
+    <script type="text/javascript" src="js/auth/authController.js"></script>
+    <script type="text/javascript" src="js/post/postController.js"></script>
+
+    <!-- js placed at the end of the document -->
    
     <!--script for this page-->
     <script src="lib/morris-conf.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var elems = document.querySelectorAll('select');
+            var instances = M.FormSelect.init(elems);
+        });
+    </script>
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             var elems = document.querySelectorAll('.parallax');
@@ -90,7 +148,6 @@
             var instances = M.Modal.init(elems);
         });
     </script>
-   
-  
+    
 </body>
 </html>

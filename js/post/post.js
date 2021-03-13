@@ -25,6 +25,26 @@ class Post {
         console.error(`Error creando el post => ${error}`)
       })
   }
+  crearEntrada (uid, emailUser, auto, hogar, comida, otros,total) {
+    return this.db
+      .collection('entradas')
+      .add({
+        uid: uid,
+        autor: emailUser,
+        auto: auto,
+        hogar: hogar,
+        comida: comida,
+        otros: otros,
+        total: total,
+        fecha: firebase.firestore.FieldValue.serverTimestamp()
+      })
+      .then(refDoc => {
+        console.log(`Id de la entrada => ${refDoc.id}`)
+      })
+      .catch(error => {
+        console.error(`Error creando la entrada => ${error}`)
+      })
+  }
 
   consultarTodosPost () {
     this.db.collection('posts').onSnapshot(querySnapshot => {
