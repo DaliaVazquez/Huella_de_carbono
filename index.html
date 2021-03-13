@@ -22,18 +22,18 @@
     <!--menu-->
     <div class="row " >
         <div class="col s12 right-align" id="inicio"style="z-index:2;position: absolute;margin-top:1%;">
-            <img style="height:50px;margin-right:3%;" id="avatar"alt="Avatar"src="img/us.png">
+            <a href="#" id="avatarref"><img style="height:50px;margin-right:3%;" id="avatar"alt="Avatar"src="img/us.png"></a>
         </div>
         
         <div class="col s3 ">
             <div class="col s1 miMenuVertical" >
                 <div >
                     <a href="#inicio" ><img class="mig" src="img/m1.png"></a>
-                    <a href="#"><img class="mig" src="img/linea.png"></a>
+                    <a ><img class="mig" src="img/linea.png"></a>
                     <a href="#"><img class="mig" src="img/m2.png"></a>
-                    <a href="#"><img class="mig" src="img/linea.png"></a>
+                    <a ><img class="mig" src="img/linea.png"></a>
                     <a href="#"><img class="mig" src="img/m3.png"></a>
-                    <a href="#"><img class="mig" src="img/linea.png"></a>
+                    <a ><img class="mig" src="img/linea.png"></a>
                     <a href="#"><img class="mig" src="img/m6.png"></a>
                 </div>
             </div>
@@ -51,7 +51,7 @@
         <div class="col s12 ">
             <img class="flow-text" style="margin-top:1%; height:70px"  src="img/nombre2.png">
         </div>
-        <p ><a class="flow-text waves-effect waves-light btn modal-trigger #43a047 green darken-1" href="#modal1">ok</a></p>
+        <p ><a id="btnInicioSesion"class="flow-text  btn modal-trigger #43a047 green darken-1" href="#modal1">ok</a></p>
         <div class="parallax">
             <img src="img/web.png">
         </div>
@@ -236,10 +236,10 @@
             <div class="col l4 offset-l2 s12">
               <h5 class="white-text">Links</h5>
               <ul>
-                <li><a class="grey-text text-lighten-3" href="#https://www.freepik.es/vectores/abstracto">Vector pixel</a></li>
-                <li><a class="grey-text text-lighten-3" href="#https://materializecss.com/">Materialize</a></li>
-                <li><a class="grey-text text-lighten-3" href="#https://codepen.io/vcomics/pen/aGmoae">City 3D</a></li>
-                <li><a class="grey-text text-lighten-3" href="#!">Link 4</a></li>
+                <li><a class="grey-text text-lighten-3" href="https://www.freepik.es/vectores/abstracto">Vector pixel</a></li>
+                <li><a class="grey-text text-lighten-3" href="https://materializecss.com/">Materialize</a></li>
+                <li><a class="grey-text text-lighten-3" href="https://codepen.io/vcomics/pen/aGmoae">City 3D</a></li>
+                <li><a class="grey-text text-lighten-3" href="perfil.html">Link 4</a></li>
               </ul>
             </div>
           </div>
@@ -252,10 +252,6 @@
       </footer>
     
     <!-- js placed at the end of the document  -->
-    <script src="lib/jquery/jquery.min.js"></script>
-    <script src="lib/raphael/raphael.min.js"></script>
-    <script src="lib/morris/morris.min.js"></script>
-    <script src="lib/morris-conf.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             var elems = document.querySelectorAll('.parallax');
@@ -269,6 +265,28 @@
         });
     </script>
     
-    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.1/js/materialize.min.js"></script>
+
+    <!-- Firebase App is always required and must be first -->
+    <script src="https://www.gstatic.com/firebasejs/5.5.8/firebase-app.js"></script>
+
+    <script src="https://www.gstatic.com/firebasejs/5.5.8/firebase-auth.js"></script>
+
+    <script src="https://www.gstatic.com/firebasejs/5.5.8/firebase-firestore.js"></script>
+
+
+    <!--build:js js/main.min.js -->
+    <script type="text/javascript" src="js/config/ConfigFirebase.js"></script>
+    <script type="text/javascript" src="js/util/util.js"></script>
+    <script type="text/javascript" src="js/post/post.js"></script>
+    <script type="text/javascript" src="js/general.js"></script>
+    <script type="text/javascript" src="js/auth/autenticacion.js"></script>
+    <script type="text/javascript" src="js/auth/authController.js"></script>
+    <script type="text/javascript" src="js/post/postController.js"></script>
+
+    <!-- endbuild -->
 </body>
 </html>
