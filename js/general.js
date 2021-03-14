@@ -18,6 +18,8 @@ $(() => {
   const post = new Post()
   post.consultarTodosPost()
 
+  
+
   // TODO: Firebase observador del cambio de estado
 
   firebase.auth().onAuthStateChanged(user => {

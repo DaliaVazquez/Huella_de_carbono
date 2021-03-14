@@ -67,6 +67,7 @@ $(() => {
     
 
     const info = $('#num').val()
+    
     post
       .crearEntrada(
         user.uid,

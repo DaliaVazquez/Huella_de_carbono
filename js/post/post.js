@@ -25,17 +25,19 @@ class Post {
         console.error(`Error creando el post => ${error}`)
       })
   }
+  
   crearEntrada (uid, emailUser, auto, hogar, comida, otros,total) {
+    
     return this.db
       .collection('entradas')
       .add({
         uid: uid,
         autor: emailUser,
-        auto: auto,
-        hogar: hogar,
-        comida: comida,
-        otros: otros,
-        total: total,
+        auto: parseInt(auto),
+        hogar: parseInt(hogar),
+        comida: parseInt(comida),
+        otros: parseInt(otros),
+        total: parseInt(total),
         fecha: firebase.firestore.FieldValue.serverTimestamp()
       })
       .then(refDoc => {
@@ -68,6 +70,29 @@ class Post {
   }
 
   consultarPostxUsuario (emailUser) {
+    this.db
+      .collection('posts')
+      .where('autor', '==', emailUser)
+      .onSnapshot(querySnapshot => {
+        $('#posts').empty()
+        if (querySnapshot.empty) {
+          $('#posts').append(this.obtenerTemplatePostVacio())
+        } else {
+          querySnapshot.forEach(post => {
+            let postHtml = this.obtenerPostTemplate(
+              post.data().autor,
+              post.data().titulo,
+              post.data().descripcion,
+              post.data().videoLink,
+              post.data().imagenLink,
+              Utilidad.obtenerFecha(post.data().fecha.toDate())
+            )
+            $('#posts').append(postHtml)
+          })
+        }
+      })
+  }
+  consultarDia (emailUser) {
     this.db
       .collection('posts')
       .where('autor', '==', emailUser)
@@ -199,4 +224,45 @@ class Post {
             </article>`
   }
 
+
+  Script() {
+
+    $(function () {
+
+      Morris.Donut({
+        element: 'hero-donut',
+        data: [
+          {label: 'Vehículo ', value: auto },
+          {label: 'Comida', value: comida },
+          {label: 'Hogar', value: hogar },
+          {label: 'Otros', value: otros }
+        ],
+          colors: ['#43a047', '#66bb6a ', '#2e7d32','#81c784 '],
+        formatter: function (y) { return y + "%" }
+      });
+
+
+      Morris.Bar({
+        element: 'hero-bar',
+        data: [
+          {device: 'Lunes', geekbench: 536},
+          {device: 'Martes', geekbench: 137},
+          {device: 'Miercoles', geekbench: 1275},
+          {device: 'Jueves', geekbench: 380},
+          {device: 'Viernes', geekbench: 655},
+          {device: 'Sabado', geekbench: 1571},
+          {device: 'Domingo', geekbench: 655}
+        ],
+        xkey: 'device',
+        ykeys: ['geekbench'],
+        labels: ['KG_CO2'],
+        barRatio: 0.4,
+        xLabelAngle: 35,
+        hideHover: 'auto',
+        barColors: ['#388e3c']
+      });
+
+    });
+
+};
 }
