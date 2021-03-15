@@ -49,7 +49,28 @@ class Post {
   }
 
   consultarTodosPost () {
-    this.db.collection('posts').onSnapshot(querySnapshot => {
+      this.db.collection('entradas')
+      .orderBy('fecha', 'desc')
+      .limit(5)
+      .get()
+      .then(querySnapshot => {
+      $('#posts').empty()
+      if (querySnapshot.empty) {
+        $('#posts').append(this.obtenerPostDia())
+      } else {
+        let postHtml = [];
+        let n=0;
+        querySnapshot.forEach(post => {
+          console.log(`allPosts con Limit 2 => ${post .data().auto}`)
+          postHtml[n] = post.data().total;
+          n++;
+        })
+        $('#posts').append(this.obtenerPostDia(postHtml))
+      }
+    })
+  }
+  consultarTodosPost2 () {
+    this.db.collection('entradas').onSnapshot(querySnapshot => {
       $('#posts').empty()
       if (querySnapshot.empty) {
         $('#posts').append(this.obtenerPostDia())
@@ -223,12 +244,7 @@ class Post {
   }
 
   obtenerPostDia (
-    auto,
-    hogar,
-    comida,
-    otros,
-    total,
-    fecha
+    postHtml
   ) {
     return `<div class="row">
     <div class="row">
@@ -247,8 +263,8 @@ class Post {
           // Tabla de datos: valores y etiquetas de la gráfica
           var data = google.visualization.arrayToDataTable([
             ['Texto', 'Valor numérico'],
-            ['Texto1', ${auto}],
-            ['Texto2',  ${hogar}],
+            ['Texto1', ${postHtml[0]}],
+            ['Texto2',  3],
             ['Texto3', 17.26],
             ['Texto4', 10.25]    
           ]);
