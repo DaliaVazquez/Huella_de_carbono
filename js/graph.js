@@ -1,31 +1,13 @@
-class graph{
-    constructor () {
-    }
-    auto=25; 
-    hogar=25;
-    comida=25;
-    otros=25;
-    total=25;
-    getA() {
-        const post= new post()
-      auto=auto1; 
-      hogar=hogar1;
-      comida=comida1;
-      otros=otros1;
-      total=total1;
-    }
 
-    
-    
-}
 const graph1= new graph()
+let b=graph1.getA();
 google.charts.load("current", {packages:["corechart"]});
 google.charts.setOnLoadCallback(drawChart);
 function drawChart() {
     var data = google.visualization.arrayToDataTable([
         ['Task', 'Hours per Day'],
-        ['auto', graph1.auto],
-        ['hogar',      2],
+        ['auto', 2],
+        ['hogar', 2],
         ['comida',  2],
         ['otros', 2],
     ]);

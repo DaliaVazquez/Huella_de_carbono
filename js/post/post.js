@@ -52,15 +52,15 @@ class Post {
     this.db.collection('posts').onSnapshot(querySnapshot => {
       $('#posts').empty()
       if (querySnapshot.empty) {
-        $('#posts').append(this.obtenerTemplatePostVacio())
+        $('#posts').append(this.obtenerPostDia())
       } else {
         querySnapshot.forEach(post => {
-          let postHtml = this.obtenerPostTemplate(
-            post.data().autor,
-            post.data().titulo,
-            post.data().descripcion,
-            post.data().videoLink,
-            post.data().imagenLink,
+          let postHtml = this.obtenerPostDia(
+            post.data().auto,
+            post.data().hogar,
+            post.data().comida,
+            post.data().otros,
+            post.data().total,
             Utilidad.obtenerFecha(post.data().fecha.toDate())
           )
           $('#posts').append(postHtml)
@@ -92,28 +92,26 @@ class Post {
         }
       })
   }
-  consultarDia (emailUser) {
+  consultarDia () {
     this.db
-      .collection('posts')
+      .collection('entradas')
       .where('autor', '==', emailUser)
       .onSnapshot(querySnapshot => {
         $('#posts').empty()
-        if (querySnapshot.empty) {
-          $('#posts').append(this.obtenerTemplatePostVacio())
-        } else {
           querySnapshot.forEach(post => {
-            let postHtml = this.obtenerPostTemplate(
-              post.data().autor,
-              post.data().titulo,
-              post.data().descripcion,
-              post.data().videoLink,
-              post.data().imagenLink,
-              Utilidad.obtenerFecha(post.data().fecha.toDate())
+            let postHtml = this.obtenerPostDia(
+              respDoc.data().auto,
+              respDoc.data().hogar,
+              respDoc.data().comida,
+              respDoc.data().otros,
+              respDoc.data().total,
+              Utilidad.obtenerFecha(respDoc.data().fecha.toDate())
             )
             $('#posts').append(postHtml)
           })
-        }
+        
       })
+    
   }
 
   subirImagenPost (file, uid) {}
@@ -224,45 +222,50 @@ class Post {
             </article>`
   }
 
+  obtenerPostDia (
+    auto,
+    hogar,
+    comida,
+    otros,
+    total,
+    fecha
+  ) {
+    return `<div class="row">
+    <div class="row">
+        <div class="col s3"> </div>
+        <div class="col s16">
+            <div id="GraficoGoogleChart-ejemplo-1" style="width: 800px; height: 600px"></div>
+         </div>
+         <div class="col s3"> </div>
+    </div>
+    
+    </div>
+    <script>
+        google.load("visualization", "1", {packages:["corechart"]});
+        google.setOnLoadCallback(dibujarGrafico);
+        function dibujarGrafico() {
+          // Tabla de datos: valores y etiquetas de la gráfica
+          var data = google.visualization.arrayToDataTable([
+            ['Texto', 'Valor numérico'],
+            ['Texto1', ${auto}],
+            ['Texto2',  ${hogar}],
+            ['Texto3', 17.26],
+            ['Texto4', 10.25]    
+          ]);
+          var options = {
+            title: 'Nuestro primer ejemplo con Google Charts',
+            backgroundColor: 'none',
+            colors:['green','#004411']
+          }
+          // Dibujar el gráfico
+          new google.visualization.ColumnChart( 
+          //ColumnChart sería el tipo de gráfico a dibujar
+            document.getElementById('GraficoGoogleChart-ejemplo-1')
+          ).draw(data, options);
+        }
+      </script>`
+  }
 
-  Script() {
-
-    $(function () {
-
-      Morris.Donut({
-        element: 'hero-donut',
-        data: [
-          {label: 'Vehículo ', value: auto },
-          {label: 'Comida', value: comida },
-          {label: 'Hogar', value: hogar },
-          {label: 'Otros', value: otros }
-        ],
-          colors: ['#43a047', '#66bb6a ', '#2e7d32','#81c784 '],
-        formatter: function (y) { return y + "%" }
-      });
 
 
-      Morris.Bar({
-        element: 'hero-bar',
-        data: [
-          {device: 'Lunes', geekbench: 536},
-          {device: 'Martes', geekbench: 137},
-          {device: 'Miercoles', geekbench: 1275},
-          {device: 'Jueves', geekbench: 380},
-          {device: 'Viernes', geekbench: 655},
-          {device: 'Sabado', geekbench: 1571},
-          {device: 'Domingo', geekbench: 655}
-        ],
-        xkey: 'device',
-        ykeys: ['geekbench'],
-        labels: ['KG_CO2'],
-        barRatio: 0.4,
-        xLabelAngle: 35,
-        hideHover: 'auto',
-        barColors: ['#388e3c']
-      });
-
-    });
-
-};
 }
