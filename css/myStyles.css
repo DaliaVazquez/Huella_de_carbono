@@ -77,6 +77,14 @@ h1::after {
   align-items:center;
   
 }
+.mirec{
+  background-image: url("../img/rec.png");
+  background-size: cover;
+  height:550px;
+  align-self: center;
+  align-items:center;
+  overflow-x: hidden;
+}
 iframe{
   width:100%;
   height:1200px;

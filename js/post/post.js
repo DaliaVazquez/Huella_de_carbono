@@ -51,21 +51,23 @@ class Post {
   consultarTodosPost () {
       this.db.collection('entradas')
       .orderBy('fecha', 'desc')
-      .limit(5)
+      .limit(7)
       .get()
       .then(querySnapshot => {
       $('#posts').empty()
       if (querySnapshot.empty) {
-        $('#posts').append(this.obtenerPostDia())
+        $('#posts').append(this.obtenerPostSemana())
       } else {
-        let postHtml = [];
+        let postHtml = [0,0,0,0,0,0,0];
+        let postHtml2 = ["day","day","day","day","day","day","day"];
         let n=0;
         querySnapshot.forEach(post => {
           console.log(`allPosts con Limit 2 => ${post .data().auto}`)
           postHtml[n] = post.data().total;
+          postHtml2[n] = Utilidad.obtenerFecha(post.data().fecha.toDate());
           n++;
         })
-        $('#posts').append(this.obtenerPostDia(postHtml))
+        $('#posts').append(this.obtenerPostSemana(postHtml,postHtml2))
       }
     })
   }
@@ -114,25 +116,27 @@ class Post {
       })
   }
   consultarDia () {
-    this.db
-      .collection('entradas')
-      .where('autor', '==', emailUser)
-      .onSnapshot(querySnapshot => {
-        $('#posts').empty()
-          querySnapshot.forEach(post => {
-            let postHtml = this.obtenerPostDia(
-              respDoc.data().auto,
-              respDoc.data().hogar,
-              respDoc.data().comida,
-              respDoc.data().otros,
-              respDoc.data().total,
-              Utilidad.obtenerFecha(respDoc.data().fecha.toDate())
-            )
-            $('#posts').append(postHtml)
-          })
-        
-      })
-    
+    this.db.collection('entradas')
+      .orderBy('fecha', 'desc')
+      .limit(1)
+      .get()
+      .then(querySnapshot => {
+      $('#posts').empty()
+      if (querySnapshot.empty) {
+        $('#posts1').append(this.obtenerPostDia())
+      } else {
+        let postHtml = [0,0,0,0,0,0,0];
+        let postHtml2 = ["day","day","day","day","day","day","day"];
+        let n=0;
+        querySnapshot.forEach(post => {
+          console.log(`allPosts con Limit 1 => ${post .data().auto}`)
+          postHtml[n] = post.data().total;
+          postHtml2[n] = Utilidad.obtenerFecha(post.data().fecha.toDate());
+          n++;
+        })
+        $('#posts1').append(this.obtenerPostDia(postHtml,postHtml2))
+      }
+    })
   }
 
   subirImagenPost (file, uid) {}
@@ -243,13 +247,14 @@ class Post {
             </article>`
   }
 
-  obtenerPostDia (
-    postHtml
+  obtenerPostSemana (
+    postHtml,
+    postHtml2
   ) {
     return `<div class="row">
     <div class="row">
         <div class="col s3"> </div>
-        <div class="col s16">
+        <div class="col s16 mirec">
             <div id="GraficoGoogleChart-ejemplo-1" style="width: 800px; height: 600px"></div>
          </div>
          <div class="col s3"> </div>
@@ -262,14 +267,16 @@ class Post {
         function dibujarGrafico() {
           // Tabla de datos: valores y etiquetas de la gráfica
           var data = google.visualization.arrayToDataTable([
-            ['Texto', 'Valor numérico'],
-            ['Texto1', ${postHtml[0]}],
-            ['Texto2',  3],
-            ['Texto3', 17.26],
-            ['Texto4', 10.25]    
+            ['Texto', 'Kg de CO2'],
+            ['${postHtml2[0]}', ${postHtml[0]}],
+            ['${postHtml2[1]}', ${postHtml[1]}],
+            ['${postHtml2[2]}', ${postHtml[2]}],
+            ['${postHtml2[3]}', ${postHtml[3]}],
+            ['${postHtml2[4]}', ${postHtml[4]}],
+            ['${postHtml2[5]}', ${postHtml[5]}],
+            ['${postHtml2[6]}', ${postHtml[6]}]    
           ]);
           var options = {
-            title: 'Nuestro primer ejemplo con Google Charts',
             backgroundColor: 'none',
             colors:['green','#004411']
           }
@@ -279,6 +286,51 @@ class Post {
             document.getElementById('GraficoGoogleChart-ejemplo-1')
           ).draw(data, options);
         }
+      </script>`
+  }
+  obtenerPostDia (
+    postHtml,
+    postHtml2
+  ) {
+    return `<div class="row center-align" >
+    <div class="col s3"> </div>
+      <div class="col s6 center-align micirculo" id="dia"style="z-index:0; ">
+          <div class="" style="margin-top: 13%; " id="donutchart" ></div>
+      </div>
+    </div>
+    </div>
+    <script>
+    google.charts.load("current", {packages:["corechart"]});
+    google.charts.setOnLoadCallback(drawChart);
+    function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+            ['Task', 'Hours per Day'],
+            ['auto', 2],
+            ['hogar', 2],
+            ['comida',  2],
+            ['otros', 2],
+        ]);
+    
+        var options = {
+            pieHole: 0.5,
+            pieSliceTextStyle: {
+                color: 'lightyellow',
+            },
+            legend: 'none',
+            backgroundColor: 'none',
+            chartArea:{left:0,top:0,width:'100%',height:'100%'},
+            height: '350',
+            colors:['green','#004411']
+        };
+    
+    
+        var chart = new google.visualization.PieChart(document.getElementById('donutchart'));
+        chart.draw(data, options);
+    }
+     
+    function getValueAt(column, dataTable, row) {
+        return dataTable.getFormattedValue(row, column);
+    }
       </script>`
   }
 
