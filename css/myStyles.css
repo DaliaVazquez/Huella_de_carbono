@@ -58,6 +58,9 @@ h1::after {
     width: 100%;
     margin-left: 20%;
 }
+.parallax-container {
+  height:100%;
+}
 .miparallax {
     margin-top:-50%;
     margin: 0%; 
