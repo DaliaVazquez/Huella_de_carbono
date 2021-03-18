@@ -16,7 +16,6 @@ $(() => {
   // TODO: Recibir las notificaciones cuando el usuario esta background
   
   const post = new Post()
-  post.consultarTodosPost()
 
   
 
@@ -28,12 +27,15 @@ $(() => {
       if (user.photoURL) {
         $('#avatar').attr('src', user.photoURL)
       } else {
-        $('#avatar').attr('src', 'imagenes/usuario_auth.png')
+        $('#avatar').attr('src', 'img/us.png')
       }
       $('#avatarref').attr('href', 'perfil.html')
+      console.log(`allPosts con Limit 2 => ${user.email}`)
+      post.consultarDia(user.email)
+      post.consultarTodosPost(user.email)
     } else {
       $('#btnInicioSesion').text('Iniciar Sesión')
-      $('#avatar').attr('src', 'imagenes/usuario.png')
+      $('#avatar').attr('src', 'img/us.png')
       $('#avatarref').attr('href', '#')
     }
   })
