@@ -66,7 +66,8 @@ $(() => {
     // Materialize.toast(`Para crear el post debes estar autenticado`, 4000)
     
 
-    const info = $('#num').val()
+    const info = $('#num1').val()
+    
     
     post
       .crearEntrada(
