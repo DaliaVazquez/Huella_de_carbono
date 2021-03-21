@@ -37,6 +37,11 @@ h1::after {
   
   margin-top: 5%;
 }
+.miInfoQ{
+  
+  margin-top: 10%;
+}
+
 .barHero{
   overflow-y: hidden;
 }
@@ -79,9 +84,10 @@ h1::after {
   background-image: url("../img/cir.png");
   background-size: cover;
   height:550px;
+  background-position: center;
   align-self: center;
   align-items:center;
-  
+  object-position: center;
 }
 .mirec{
   background-image: url("../img/rec.png");
@@ -133,13 +139,13 @@ iframe{
     font-weight: bold;
   }
   .registro-formulario {
-    border-left: 0.3em solid #126798;
+    border-left: 0.3em solid #3c9812;
   }
   .registro-formulario div {
     margin: 0;
   }
   .registro-formulario label {
-    color: #126798;
+    color: #129828;
     font-size: 1em;
   }
   .registro-formulario a {
@@ -156,7 +162,8 @@ iframe{
     padding: 0;
   }
   .registro-formulario .div-btnInicioSesion a {
-    background: #126798 !important;
+    background: #129812 !important;
+    text-align: center;
   }
   .registro-formulario .lbl-ingresar-redes {
     color: #126798;

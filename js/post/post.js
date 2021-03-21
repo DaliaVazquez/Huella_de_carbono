@@ -8,16 +8,16 @@ class Post {
 
   
   
-  crearEntrada (uid, emailUser, auto, hogar, comida, otros,total) {
+  crearEntrada (uid, emailUser, transporte, hogar, agua, otros,total) {
     
     return this.db
       .collection('entradas')
       .add({
         uid: uid,
         autor: emailUser,
-        auto: parseInt(auto),
+        transporte: parseInt(transporte),
         hogar: parseInt(hogar),
-        comida: parseInt(comida),
+        agua: parseInt(agua),
         otros: parseInt(otros),
         total: parseInt(total),
         fecha: firebase.firestore.FieldValue.serverTimestamp()
@@ -46,7 +46,7 @@ class Post {
         let dia="";
         querySnapshot.forEach(post => {
           if(emailUser== post.data().autor && n<7 && dia != Utilidad.obtenerFecha(post.data().fecha.toDate())){
-            console.log(`allPosts con Limit 2 => ${post .data().auto}`)
+            console.log(`allPosts con Limit 2 => ${post .data().transporte}`)
             postHtml[n] = post.data().total;
             postHtml2[n] = Utilidad.obtenerFecha(post.data().fecha.toDate());
             dia=Utilidad.obtenerFecha(post.data().fecha.toDate());
@@ -73,8 +73,8 @@ class Post {
         querySnapshot.forEach(post => {
           if(emailUser== post.data().autor && n<1){
             let postHtml= this.obtenerPostDia(
-              post.data().auto,
-              post.data().comida,
+              post.data().transporte,
+              post.data().agua,
               post.data().hogar,
               post.data().otros,
               post.data().total,
@@ -109,7 +109,7 @@ class Post {
         function dibujarGrafico() {
           // Tabla de datos: valores y etiquetas de la gráfica
           var data = google.visualization.arrayToDataTable([
-            ['Texto', 'Kg de CO2'],
+            ['Texto', 'gr de CO2'],
             ['${postHtml2[6]}', ${postHtml[6]}],
             ['${postHtml2[5]}', ${postHtml[5]}],
             ['${postHtml2[4]}', ${postHtml[4]}],
@@ -131,8 +131,8 @@ class Post {
       </script>`
   }
   obtenerPostDia (
-    auto,
-    comida,
+    transporte,
+    agua,
     hogar,
     otros,
     total,
@@ -141,7 +141,7 @@ class Post {
     return `<div class="row center-align" >
     <div class="col s12 miInfo"> 
     <h3> CO2 total del ${fecha}: </h3>
-    <h2> ${total} Kg </h2></div>
+    <h2> ${total} gr </h2></div>
     <div class="col s3"> </div>
       <div class="col s6 center-align micirculo  miInfo" id="dia"style="z-index:0; ">
           <div class="" style="margin-top: 13%; " id="donutchart" ></div>
@@ -154,9 +154,9 @@ class Post {
     function drawChart() {
         var data = google.visualization.arrayToDataTable([
             ['Task', 'Hours per Day'],
-            ['auto', ${auto}],
-            ['hogar', ${comida}],
-            ['comida',  ${hogar}],
+            ['transporte', ${transporte}],
+            ['agua', ${agua}],
+            ['hogar',  ${hogar}],
             ['otros', ${otros}],
         ]);
     
