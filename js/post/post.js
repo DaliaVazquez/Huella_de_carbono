@@ -8,7 +8,7 @@ class Post {
 
   
   
-  crearEntrada (uid, emailUser, transporte, hogar, agua, otros,total) {
+  crearEntrada (uid, emailUser, transporte, hogar, agua, ocio,otros,total) {
     
     return this.db
       .collection('entradas')
@@ -18,6 +18,7 @@ class Post {
         transporte: parseInt(transporte),
         hogar: parseInt(hogar),
         agua: parseInt(agua),
+        ocio: parseInt(ocio),
         otros: parseInt(otros),
         total: parseInt(total),
         fecha: firebase.firestore.FieldValue.serverTimestamp()
@@ -76,6 +77,7 @@ class Post {
               post.data().transporte,
               post.data().agua,
               post.data().hogar,
+              post.data().ocio,
               post.data().otros,
               post.data().total,
               Utilidad.obtenerFecha(post.data().fecha.toDate())
@@ -109,7 +111,7 @@ class Post {
         function dibujarGrafico() {
           // Tabla de datos: valores y etiquetas de la gráfica
           var data = google.visualization.arrayToDataTable([
-            ['Texto', 'gr de CO2'],
+            ['Texto', 'Kg de CO2'],
             ['${postHtml2[6]}', ${postHtml[6]}],
             ['${postHtml2[5]}', ${postHtml[5]}],
             ['${postHtml2[4]}', ${postHtml[4]}],
@@ -134,6 +136,7 @@ class Post {
     transporte,
     agua,
     hogar,
+    ocio,
     otros,
     total,
     fecha
@@ -141,7 +144,7 @@ class Post {
     return `<div class="row center-align" >
     <div class="col s12 miInfo"> 
     <h3> CO2 total del ${fecha}: </h3>
-    <h2> ${total} gr </h2></div>
+    <h2> ${total} Kg </h2></div>
     <div class="col s3"> </div>
       <div class="col s6 center-align micirculo  miInfo" id="dia"style="z-index:0; ">
           <div class="" style="margin-top: 13%; " id="donutchart" ></div>
@@ -157,6 +160,7 @@ class Post {
             ['transporte', ${transporte}],
             ['agua', ${agua}],
             ['hogar',  ${hogar}],
+            ['ocio', ${ocio}],
             ['otros', ${otros}],
         ]);
     
@@ -169,7 +173,7 @@ class Post {
             backgroundColor: 'none',
             chartArea:{left:0,top:0,width:'100%',height:'100%'},
             height: '350',
-            colors:['green','#004411']
+            colors:['#7acc2d','#004411','#3c9812','green','#129812']
         };
     
     

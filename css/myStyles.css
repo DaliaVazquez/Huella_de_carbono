@@ -13,7 +13,12 @@ body {
 
 h3 {
   font-family: 'Dosis', sans-serif;
-  
+  text-align: center;
+  color: rgb(163, 219, 130);
+}
+h4 {
+  font-family: 'Dosis', sans-serif;
+  font-size: 10pt;
   text-align: center;
   color: rgb(163, 219, 130);
 }
@@ -107,7 +112,7 @@ iframe{
     margin: 15px;
 }
 #btnUploadFile {
-    background: #126798 !important;
+    background: #129828 !important;
     font-family: 'Montserrat', sans-serif;
     font-weight: bold;
     transition: 0.5s;
@@ -166,7 +171,7 @@ iframe{
     text-align: center;
   }
   .registro-formulario .lbl-ingresar-redes {
-    color: #126798;
+    color: #1d9812;
     font-weight: bold;
     padding-top: 1em;
     text-align: center;
@@ -205,7 +210,7 @@ iframe{
     margin-bottom: 0em;
   }
   .div-btnRegistrarse a {
-    background: #126798 !important;
+    background: #129812 !important;
   }
 @media screen and (min-width: 768px) {
     .registro-bienvenida {

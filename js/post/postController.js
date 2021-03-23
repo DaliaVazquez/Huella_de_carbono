@@ -38,15 +38,20 @@ $(() => {
     const numFoco= $('#num8').val()
     const hrFoco= $('#num9').val()
 
-    if(ducha==NaN){
-      console.log(`d => ${ducha}`)
+    let datos=[parseInt(camion),parseInt(coche),parseInt(taxi),parseInt(tele),parseInt(lap),parseInt(numFoco),parseInt(hrFoco),
+      parseInt(ducha),parseInt(baño)]
+    for(var i=0;i<datos.length; i++){
+      if(isNaN(datos[i]) || datos[i]<0){
+        datos[i]=0
+      }
     }
 
-    const transporte =parseInt(camion)+parseInt(coche)+parseInt(taxi)
-    const hogar = parseInt(tele)+parseInt(lap)+parseInt(numFoco)+parseInt(hrFoco)
-    const agua = parseInt(ducha)+parseInt(baño)
-    const otros = 5040
-    const total = otros+agua+hogar+transporte
+    const transporte =((datos[0]* 69.3)+(datos[1]* 210.66)+(datos[2]* 138.66))/1000
+    const hogar = ((datos[5]*datos[6]* 41.3736)+(1095572.28/4))/1000
+    const agua = ((datos[7]* 20 * 133.33)+(datos[8] * 17 * 133.33))/1000
+    const ocio= ((datos[3]* 181354.28)+(datos[4]* 241.346))/1000
+    const otros = 5040/1000
+    const total = otros+agua+hogar+transporte+ocio
     
     post
       .crearEntrada(
@@ -54,7 +59,8 @@ $(() => {
         user.email,
         transporte, 
         hogar, 
-        agua, 
+        agua,
+        ocio, 
         otros,
         total
       )
