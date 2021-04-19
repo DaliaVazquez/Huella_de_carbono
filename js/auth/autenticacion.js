@@ -26,7 +26,7 @@ class Autenticacion {
         })
 
         const configuracion = {
-          url: 'http://localhost:3000/'
+          url: 'https://daliavazquez.github.io/Huella_de_carbono/'
         }
 
         result.user.sendEmailVerification(configuracion).catch(error => {
@@ -70,7 +70,7 @@ class Autenticacion {
       const auth = firebase.auth();
 
       const configuracion = {
-        url: "http://localhost:3000/"
+        url: "https://daliavazquez.github.io/Huella_de_carbono/"
       };
 
       auth
