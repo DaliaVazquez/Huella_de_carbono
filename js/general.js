@@ -26,17 +26,22 @@ $(() => {
       $('#btnInicioSesion').text('Salir')
       if (user.photoURL) {
         $('#avatar').attr('src', user.photoURL)
+        $('#avatar2').attr('src', user.photoURL)
       } else {
         $('#avatar').attr('src', 'img/us.png')
+        $('#avatar2').attr('src', 'img/us.png')
       }
       $('#avatarref').attr('href', 'perfil.html')
+      $('#avatarref2').attr('href', 'perfil.html')
       console.log(`allPosts con Limit 2 => ${user.email}`)
       post.consultarDia(user.email)
       post.consultarTodosPost(user.email)
     } else {
       $('#btnInicioSesion').text('Iniciar Sesión')
       $('#avatar').attr('src', 'img/us.png')
+      $('#avatar2').attr('src', 'img/us.png')
       $('#avatarref').attr('href', '#')
+      $('#avatarref2').attr('href', '#')
     }
   })
 
@@ -50,6 +55,7 @@ $(() => {
         .signOut()
         .then(() => {
           $('#avatar').attr('src', 'imagenes/usuario.png')
+          $('#avatar2').attr('src', 'imagenes/usuario.png')
           Materialize.toast(`SignOut Correcto`, 4000)
         })
         .catch(error => {

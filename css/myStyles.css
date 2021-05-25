@@ -61,12 +61,17 @@ h1::after {
     position: fixed;
     z-index: 2;
     align-items: center;
-    margin-top: 11%;
+    margin-top: 8%;
 }
 .mig{
     height:100%;
     width: 100%;
     margin-left: 20%;
+}
+.mig2{
+  height:65%;
+  width: 65%;
+  margin-left: 53%;
 }
 .parallax-container {
   height:100%;

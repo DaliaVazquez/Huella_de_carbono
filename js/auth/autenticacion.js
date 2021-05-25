@@ -12,41 +12,60 @@ class Autenticacion {
         )
       }
     })
+    .catch(error => {
+      console.error(error)
+      console.log(error.message)
+      Materialize.toast(error.message, 4000)
+    })
 
     $('.modal').modal('close')
   }
 
   crearCuentaEmailPass (email, password, nombres) {
-    firebase
+    if(nombres.length===0){
+      Materialize.toast(
+        `Debes colocar un nombre`,
+        4000
+      )
+      console.log(`debes colocar un nombre`)
+      
+    }else{
+      firebase
       .auth()
       .createUserWithEmailAndPassword(email, password)
       .then(result => {
-        result.user.updateProfile({
-          displayName: nombres
-        })
+        
+            result.user.updateProfile({
+            displayName: nombres
+          })
 
-        const configuracion = {
-          url: 'https://daliavazquez.github.io/Huella_de_carbono/'
-        }
+          const configuracion = {
+            url: 'https://daliavazquez.github.io/Huella_de_carbono/'
+          }
 
-        result.user.sendEmailVerification(configuracion).catch(error => {
-          console.error(error)
-          Materialize.toast(error.message, 4000)
-        })
+          result.user.sendEmailVerification(configuracion).catch(error => {
+            console.error(error)
+            console.log(error.message)
+            Materialize.toast(error.message, 4000)
+          })
 
-        firebase.auth().signOut()
+          firebase.auth().signOut()
 
-        Materialize.toast(
-          `Bienvenido ${nombres}, debes realizar el proceso de verificación`,
-          4000
-        )
-
-        $('.modal').modal('close')
+          Materialize.toast(
+            `Bienvenido ${nombres}, debes realizar el proceso de verificación`,
+            4000
+          )
+          console.log(`Bienvenido ${nombres}, debes realizar el proceso de verificación`)
+          $('.modal').modal('close')
+        
+        
       })
       .catch(error => {
         console.error(error)
+        console.log(error.message)
         Materialize.toast(error.message, 4000)
       })
+    }
   }
 
   authCuentaGoogle () {
