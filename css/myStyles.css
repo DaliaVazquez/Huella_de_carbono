@@ -10,7 +10,6 @@ body {
     text-align: center;
     color: rgb(255, 255, 255);
 }
-
 h3 {
   font-family: 'Dosis', sans-serif;
   text-align: center;
@@ -28,7 +27,7 @@ canvas {
   height: 100%;
 }
 h1::after {
-  content: ' Three JS';
+  content: ' Three JS'; 
   font-size: 12px;
   position:absolute;
   top: 3px;
@@ -39,14 +38,11 @@ h1::after {
   color: rgb(255, 228, 108);
 }
 .miInfo{
-  
   margin-top: 5%;
 }
 .miInfoQ{
-  
   margin-top: 10%;
 }
-
 .barHero{
   overflow-y: hidden;
 }
@@ -57,6 +53,7 @@ h1::after {
     align-content: center;
     margin-top: 0%
 }
+
 .miMenuVertical{
     position: fixed;
     z-index: 2;
@@ -74,12 +71,14 @@ h1::after {
   margin-left: 53%;
 }
 .parallax-container {
-  height:100%;
+  width: 100%;
+  margin-top:-50%;
+  height: 100vh;
 }
 .miparallax {
     margin-top:-50%;
     margin: 0%; 
-    height:750px;
+  width: 100%;
     align-items: center;
     align-content: center;
 }
@@ -235,4 +234,59 @@ iframe{
     .modal-registro {
         width: 70% !important;
     }
+  }
+@media(max-width: 768px  )  {
+  .miMenuVertical {
+    display:  none;
+  }
+  .parallax {
+    display:  none;
+  }
+  .parallax-container {
+    margin-top: -150%;
+  /* height: 80vh; */
+  }
+  .imagenQueDesaparece {
+    display: none;
+  }
+}
+@media(max-width: 768px  )  {
+  #rowDes {
+  display: none;
+  }
+  #aItems {
+    position:absolute;
+    left: 8%;
+    top: 192%;
+  }
+  #foF{
+    position:absolute;
+    bottom: -670%;
+  }
+  #h3_1 {
+    font-family: 'Dosis', sans-serif;
+    text-align: center;
+    color: rgb(163, 219, 130);
+    position: absolute;
+     left: 31%;
+     bottom: -15%;
+  }
+  #h3_2 {
+    font-family: 'Dosis', sans-serif;
+    text-align: center;
+    color: rgb(163, 219, 130);
+    position: absolute;
+     left: 22%;
+     bottom: -55%;
+  }
+  #p1 {
+    position: absolute;
+    left: -0%;
+    bottom: -40%;
+  }
+  #p2{
+    position: absolute;
+    left: -0%;
+    bottom: -83%;
+  }
 }

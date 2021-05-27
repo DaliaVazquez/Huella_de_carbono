@@ -3,19 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="img/logo.png"><!--logo en pestaña-->
     <title>HDC02</title>
     <link rel="stylesheet" type="text/css" href="css/myStyles.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- Compiled and minified CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 
     <!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+   
     <!--Import Google Icon Font-->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    
 </head>
 <body>
 
@@ -42,13 +42,13 @@
         </div>
     </div>
     <!--imagen-->
-    <div class="center-align"  style="margin-top:0%; z-index:0;" >   
+    <div class="center-align"  style="margin-top:0%; z-index:0; position: fixed" >   
         <script src='https://cdnjs.cloudflare.com/ajax/libs/three.js/89/three.min.js'></script>
         <script  src="js/script.js"></script>    
     </div> 
    
 
-    <div class="parallax-container center-align"  style="margin-top:-50%; z-index:1; height: 100vh;" >
+    <div class="parallax-container center-align"  style=" z-index:1; height: 100vh;" >
         <img class="responsive-img flow-text " style="margin-top:10%; height:150px"  src="img/logo.png">
         <div class="col s12 ">
             <img class="flow-text" style="margin-top:1%; height:70px"  src="img/nombre2.png">
@@ -58,7 +58,6 @@
             <img src="img/web.png">
         </div>
     </div>
-   
 <!-- inicio modal Structure -->
 <div id="modal1"  class="modal center-align">
     <div class="modal-content">
@@ -137,21 +136,22 @@
         <div class="col s12">
             <div class="col s4"> </div>
             <div id="proyecto"class="col s4 miInfo">
-                <h3> Proyecto</h3>
-                <p>El propósito de este proyecto es ofrecer a nuestros usuarios una forma fácil de no solo calcular
+                <h3 id="h3_1"> Proyecto</h3>
+                <p id="p1">El propósito de este proyecto es ofrecer a nuestros usuarios una forma fácil de no solo calcular
                     su huella de carbono, sino de rastrear como ha ido su progreso de contaminación, y ver que acciones
                     pueden tomar para reducir su impacto ecológico. </p>
             </div>
             <div class="col s4"> </div>
         </div>
+
         <div class="col s3"> </div>
         <div id="ho2"class="col s3 miInfo">
-            <h3>¿Qué es HO2?</h3>
-            <p>El dióxido de carbono es un gas, el principal causante de cambio climático. Es incoloro,
+            <h3 id="h3_2">¿Qué es CO2?</h3>
+            <p id="p2">El dióxido de carbono es un gas, el principal causante de cambio climático. Es incoloro,
                 y no tiene olor, sin embargo, notamos sus consecuencias a diario. Casi todo lo que hacemos 
                 diariamente lo libera, así que es de suma importancia saber cuánto liberamos a la atmósfera</p>
         </div>
-        <div class="col s3 miInfo">
+        <div class="col s3 miInfo imagenQueDesaparece" >
             <img class="responsive-img" src="img/m3.png">
         </div>
         <div class="col s3"> </div>
@@ -159,11 +159,11 @@
    
     
     <!--Noticias -->
-    <div class="row" >
+    <div class="row">
         <!--Noticias 1-->
-        <div class="col s2 ">
+        <div class="col s2 " id="rowDes">
         </div>
-        <div class="col s10 center-align miInfo" >
+        <div class="col s10 center-align miInfo" id="aItems">
             <div id="nota"class="col s12"style="margin-left:3%;">
                 <div class="col s12 m3 misnotas">
                     <img class="circle responsive-img" src="img/n1.jpg">
@@ -197,8 +197,8 @@
             </div>
 
             <!--Noticias 2-->
-            <div class="col s12 miInfo" style="margin-left:3%;">
-                <div class="col s12 m3 misnotas">
+            <div class="col s12 miInfo" style="margin-left:3%;" id="misNN">
+                <div class="col s12 m3 misnotas" id="misN">
                     <img class="circle responsive-img" src="img/n4.jpg">
                     <h4>¿Cómo pueden las empresas reducir la Huella de Carbono?</h4>
                     <p>La huella de carbono es la herramienta para conocer cuál es nuestro impacto medioambiental. 
@@ -231,8 +231,8 @@
         </div>
     </div>
     <!-- jpie  -->
-    <footer class="page-footer #1b5e20 green darken-4 miInfo">
-        <div class="container">
+    <footer class="page-footer #1b5e20 green darken-4 miInfo" id="foF">
+        <div class="container" id="fo">
           <div class="row">
             <div class="col l6 s12">
                 <h5 class="white-text">Footer Content</h5>
